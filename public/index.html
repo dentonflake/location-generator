@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nellis Auction</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 id="name">Nellis Auction</h1>
+    </header>
+
+    <main>
+        <section id="tool-container">
+            <h1 id="tool-title">Location Generator</h1>
+            <form id="tool-grid" action="/submit" method="post">
+                <div class="grid-item" id="warehouse">
+                    <label for="warehouse" class="grid-item-title">Warehouse #:</label>
+                    <input type="number" name="warehouse" id="warehouse-input" placeholder="E.g. 3000" required>
+                </div>
+                <div class="grid-item" id="aisle">
+                    <label for="aisle" class="grid-item-title">Aisle #:</label>
+                    <input type="number" name="aisle" id="aisle-input" placeholder="E.g. 28" required>
+                </div>
+                <div class="grid-item" id="bay">
+                        <label for="start" class="grid-item-title">Bay Start: </label>
+                        <label for="end" class="grid-item-title">Bay End: </label>
+                        <input type="number" name="start" id="start-input" placeholder="E.g. 1 (included)" required>
+                        <input type="number" name="end" id="end-input" placeholder="E.g. 15 (excluded)" required>
+                </div>
+                <div class="grid-item" id="column">
+                    <label for="column" class="grid-item-title">Columns:</label>
+                    <input type="number" name="column" id="column-input" placeholder="E.g. 7" required>
+                </div>
+                <div class="grid-item" id="row">
+                    <label for="row" class="grid-item-title">Rows:</label>
+                    <input type="number" name="row" id="row-input" placeholder="E.g. 3  " required>
+                </div>
+                <button type="submit" class="grid-item" id="generate">Generate</button>
+            </form>
+        </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

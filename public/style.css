@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(50, 50, 50);
+}
+
+header {
+    background-color: rgba(25, 25, 25, 1);
+    padding: 20px;
+}
+
+#name {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 100px;
+}
+
+#tool-container {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#tool-title {
+    background-color: rgba(25, 25, 25, 1);
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 300px;
+    color: white;
+}
+
+#tool-grid {
+    padding: 30px;
+
+    background-color: rgb(240, 240, 240);
+
+    display: grid;
+    gap: 15px;
+
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-item {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.grid-item-title {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 5px;
+    width: 100%;
+}
+
+#warehouse {
+    grid-column: 1 / 5;
+}
+
+#aisle {
+    grid-column: 5 / 7;
+}
+
+#bay {
+    grid-column: 1 / 7;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 15px;
+}
+
+#column {
+    grid-column: 1 / 4;
+}
+
+#row {
+    grid-column: 4 / 7;
+}
+
+#generate {
+    grid-column: 6 / 7;
+    border: none;
+    background-color: rgb(0, 255, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+#generate:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    filter: brightness(80%);
+}
+
+@media only screen and (max-width: 900px) {
+    main {
+        padding: 20px;
+    }
+
+    #tool-container {
+        max-width: none;
+    }
+
+    #tool-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #warehouse {
+        grid-column: 1;
+    }
+
+    #aisle {
+        grid-column: 1;
+    }
+
+    #bay {
+        grid-column: 1;
+    }
+
+    #column {
+        grid-column: 1;
+    }
+
+    #row {
+        grid-column: 1;
+    }
+
+    #generate {
+        grid-column: 1;
+    }
+}
