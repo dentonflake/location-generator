@@ -19,6 +19,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'))
 
+app.use((req, res, next) => {
+    if (req.secure) {
+        // Request is already HTTPS
+        return next();
+    }
+    // Redirect to HTTPS
+    res.redirect(`https://${req.headers.host}${req.url}`);
+});
+
 app.post('/submit', (req, res) => {
     const request = {
         warehouse: parseInt(req.body.warehouse),
