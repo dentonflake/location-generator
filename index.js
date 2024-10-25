@@ -13,35 +13,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'))
 
-const parseNumbers = (data) => {
-    return Object.fromEntries(
-        Object.entries(data).map(([key, value]) => [key, parseInt(value, 10)])
-    );
-};
-
 app.post('/submit', (req, res) => {
-    const parsedData = parseNumbers(req.body);
-    const { warehouse, aisle, start, end, column, row } = parsedData;
+    console.log(req.body)
+
 
     let locations = [];
 
-    for (let i = 0; i <= (end - start); i++) {
-        for (let j = 0; j < column; j++) {
-            for (let k = 0; k < row; k++) {
-                let bay = start + i;
-                let columnIndex = j + 1;
-                let rowIndex = k + 1;
+    // for (let i = 0; i <= (end - start); i++) {
+    //     for (let j = 0; j < column; j++) {
+    //         for (let k = 0; k < row; k++) {
+    //             let bay = start + i;
+    //             let columnIndex = j + 1;
+    //             let rowIndex = k + 1;
 
-                let prefix = warehouse + aisle;
-                let suffix = `${bay}${columnIndex}${rowIndex}`;
+    //             let prefix = warehouse + aisle;
+    //             let suffix = `${bay}${columnIndex}${rowIndex}`;
 
-                let code = `${prefix}.${suffix}`;
-                let label = `${aisle}.${suffix}`;
+    //             let code = `${prefix}.${suffix}`;
+    //             let label = `${aisle}.${suffix}`;
 
-                locations.push({ code, label });
-            }
-        }
-    }
+    //             locations.push({ code, label });
+    //         }
+    //     }
+    // }
 
     const filePath = path.join(__dirname, 'locations.xlsx');
     const workbook = xlsx.utils.book_new();

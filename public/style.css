@@ -55,7 +55,11 @@ main {
     display: grid;
     gap: 15px;
 
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        'warehouse warehouse warehouse generate'
+        'aisle aisle aisle aisle'
+        'bay bay bay bay'
+        'column column row row';
 }
 
 .grid-item {
@@ -82,15 +86,19 @@ input {
 }
 
 #warehouse {
-    grid-column: 1 / 5;
+    grid-area: warehouse;
 }
 
 #aisle {
-    grid-column: 5 / 7;
+    grid-area: aisle;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 15px;
 }
 
 #bay {
-    grid-column: 1 / 7;
+    grid-area: bay;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -98,17 +106,17 @@ input {
 }
 
 #column {
-    grid-column: 1 / 4;
+    grid-area: column;
 }
 
 #row {
-    grid-column: 4 / 7;
+    grid-area: row;
 }
 
 #generate {
-    grid-column: 6 / 7;
+    grid-area: generate;
     border: none;
-    background-color: rgb(0, 255, 0);
+    background-color: rgb(0, 225, 0);
     display: flex;
     justify-content: center;
     align-items: center;
