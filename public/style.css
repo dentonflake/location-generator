@@ -40,7 +40,7 @@ main {
 }
 
 #tool-title {
-    background-color: rgba(25, 25, 25, 1);
+    background-color: rgb(100, 100, 100);
     padding: 15px;
     font-size: 15px;
     font-weight: 300;
@@ -116,7 +116,7 @@ input {
 #generate {
     grid-area: generate;
     border: none;
-    background-color: rgb(0, 225, 0);
+    background-color: gold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,13 +151,13 @@ footer a {
     }
 
     main {
-        padding: 15px;
+        padding: 0 0 15px;
     }
 
     #tool-container {
         max-width: none;
 
-        border-radius: 15px;
+        border-radius: 0px;
     }
 
     #tool-grid {

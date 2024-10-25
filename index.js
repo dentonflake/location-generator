@@ -6,7 +6,12 @@ const path = require('path');
 
 const app = express()
 
-const server = http.createServer(app)
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/fullchain.pem')
+};
+
+const server = https.createServer(options, app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,7 +42,7 @@ app.post('/submit', (req, res) => {
             for (let column = 0; column < request.column; column++) {
 
                 for (let row = 0; row < request.row; row++) {
-                    
+
                     let location = {
                         prefix: `${request.warehouse + request.aisle.start + aisle}`,
                         suffix: `${request.bay.start + bay}${column + 1}${row + 1}`
