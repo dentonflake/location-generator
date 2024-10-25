@@ -1,32 +1,32 @@
 const fs = require('fs');
 const express = require('express')
 const bodyParser = require('body-parser');
-const https = require('https')
+const http = require('http')
 const xlsx = require('xlsx');
 const path = require('path');
 
 const app = express()
 
-const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/fullchain.pem')
-};
+// const options = {
+//     key: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/privkey.pem'),
+//     cert: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/fullchain.pem')
+// };
 
-const server = https.createServer(options, app);
+const server = http.createServer(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'))
 
-app.use((req, res, next) => {
-    if (req.secure) {
-        // Request is already HTTPS
-        return next();
-    }
-    // Redirect to HTTPS
-    res.redirect(`https://${req.headers.host}${req.url}`);
-});
+// app.use((req, res, next) => {
+//     if (req.secure) {
+//         // Request is already HTTPS
+//         return next();
+//     }
+//     // Redirect to HTTPS
+//     res.redirect(`https://${req.headers.host}${req.url}`);
+// });
 
 app.post('/submit', (req, res) => {
     const request = {
@@ -85,7 +85,7 @@ app.post('/submit', (req, res) => {
     });
 });
 
-const port = 443
+const port = 3000
 
 server.listen(port, () => {
     console.clear()
