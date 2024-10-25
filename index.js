@@ -8,8 +8,8 @@ const path = require('path');
 const app = express()
 
 const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/fullchain.pem')
+    key: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/fullchain.pem')
 };
 
 const server = https.createServer(options, app);
@@ -76,7 +76,7 @@ app.post('/submit', (req, res) => {
     });
 });
 
-const port = 3000
+const port = 443
 
 server.listen(port, () => {
     console.clear()
