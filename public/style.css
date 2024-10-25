@@ -29,7 +29,7 @@ main {
     justify-content: center;
     align-items: center;
 
-    padding: 100px;
+    padding: 100px 100px 15px;
 }
 
 #tool-container {
@@ -43,7 +43,7 @@ main {
     background-color: rgba(25, 25, 25, 1);
     padding: 15px;
     font-size: 15px;
-    font-weight: 300px;
+    font-weight: 300;
     color: white;
 }
 
@@ -129,40 +129,44 @@ input {
     filter: brightness(80%);
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 10px;
+    font-weight: 300;
+}
+
 @media only screen and (max-width: 900px) {
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     main {
-        padding: 20px;
+        padding: 15px;
     }
 
     #tool-container {
         max-width: none;
+
+        border-radius: 15px;
     }
 
     #tool-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    #warehouse {
-        grid-column: 1;
-    }
-
-    #aisle {
-        grid-column: 1;
-    }
-
-    #bay {
-        grid-column: 1;
-    }
-
-    #column {
-        grid-column: 1;
-    }
-
-    #row {
-        grid-column: 1;
-    }
-
-    #generate {
-        grid-column: 1;
+        grid-template-areas:
+            'warehouse'
+            'aisle'
+            'bay'
+            'column'
+            'row'
+            'generate';
     }
 }
