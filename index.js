@@ -7,26 +7,12 @@ const path = require('path');
 
 const app = express()
 
-// const options = {
-//     key: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/privkey.pem'),
-//     cert: fs.readFileSync('/etc/letsencrypt/live/nellisauction.dentonflake.com/fullchain.pem')
-// };
-
 const server = http.createServer(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'))
-
-// app.use((req, res, next) => {
-//     if (req.secure) {
-//         // Request is already HTTPS
-//         return next();
-//     }
-//     // Redirect to HTTPS
-//     res.redirect(`https://${req.headers.host}${req.url}`);
-// });
 
 app.post('/submit', (req, res) => {
     const request = {
