@@ -14,33 +14,49 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
 app.post('/submit', (req, res) => {
-    console.log(req.body)
+    const request = {
+        warehouse: parseInt(req.body.warehouse),
+        aisle: {
+            start: parseInt(req.body.aisleStart),
+            end: parseInt(req.body.aisleEnd)
+        },
+        bay: {
+            start: parseInt(req.body.bayStart),
+            end: parseInt(req.body.bayEnd)
+        },
+        column: parseInt(req.body.column),
+        row: parseInt(req.body.row)
+    }
 
+    let data = [];
 
-    let locations = [];
+    for (let aisle = 0; aisle <= (request.aisle.end - request.aisle.start); aisle++) {
 
-    // for (let i = 0; i <= (end - start); i++) {
-    //     for (let j = 0; j < column; j++) {
-    //         for (let k = 0; k < row; k++) {
-    //             let bay = start + i;
-    //             let columnIndex = j + 1;
-    //             let rowIndex = k + 1;
+        for (let bay = 0; bay <= (request.bay.end - request.bay.start); bay++) {
 
-    //             let prefix = warehouse + aisle;
-    //             let suffix = `${bay}${columnIndex}${rowIndex}`;
+            for (let column = 0; column < request.column; column++) {
 
-    //             let code = `${prefix}.${suffix}`;
-    //             let label = `${aisle}.${suffix}`;
+                for (let row = 0; row < request.row; row++) {
+                    
+                    let location = {
+                        prefix: `${request.warehouse + request.aisle.start + aisle}`,
+                        suffix: `${request.bay.start + bay}${column + 1}${row + 1}`
+                    }
 
-    //             locations.push({ code, label });
-    //         }
-    //     }
-    // }
+                    data.push({
+                        code: `${location.prefix}.${location.suffix}`,
+                        label: `${request.aisle.start + aisle}.${location.suffix}`
+                    })
+                }
+            }
+        }
+
+    }
 
     const filePath = path.join(__dirname, 'locations.xlsx');
     const workbook = xlsx.utils.book_new();
 
-    const worksheet = xlsx.utils.json_to_sheet(locations, { header: ["code", "label"] });
+    const worksheet = xlsx.utils.json_to_sheet(data, { header: ["label", "code"] });
 
     xlsx.utils.book_append_sheet(workbook, worksheet, 'Locations');
 
