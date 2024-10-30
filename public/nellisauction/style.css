@@ -20,9 +20,9 @@
     grid-area: general;
 }
 
-@media only screen and (max-width: 1125px) {
+/* @media only screen and (max-width: 1125px) {
     #grid-container {
-        max-width: 750px;
+        max-width: none;
 
         grid-template-columns: repeat(2, 1fr);
 
@@ -31,38 +31,16 @@
             'goals goals'
             'processing tools';
     }
-}
+} */
 
 @media only screen and (max-width: 875px) {
-    header {
-        display: flex;
-        justify-content: center;
-    }
-
-    main {
-        margin-top: 50px;
-    }
-
     #dashboard {
-        max-width: 500px;
+        max-width: none;
 
-        grid-template-columns: repeat(1, 1fr);
-
-        grid-template-areas:
+        grid-template-areas: 
             'announcements'
+            'general'
             'goals'
-            'processing'
-            'tools';
-
-        grid-gap: 15px;
-    }
-
-    .grid-item {
-        border-radius: 15px;
-    }
-
-    .grid-item-content {
-        display: flex;
-        justify-content: center;
+            'processing';
     }
 }

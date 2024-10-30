@@ -124,7 +124,7 @@ input {
 
 @media only screen and (max-width: 875px) {
     main {
-        padding: 0;
+        padding: 10px;
     }
 
     header {
