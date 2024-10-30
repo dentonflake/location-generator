@@ -1,0 +1,8 @@
+{
+  "name": "Nellis Auction",
+  "short_name": "Resources",
+  "start_url": "/nellisauction",
+  "display": "standalone",
+  "background_color": "rgba(0, 0, 0, 1)",
+  "theme_color": "#000000"
+}

@@ -7,264 +7,58 @@
 
     <title>Resources</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-
-            font-optical-sizing: auto;
-            font-family: "Montserrat", sans-serif;
-        }
-
-        body {
-            background-color: rgba(0, 0, 0, 0.7);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
-
-        header {
-            padding: 15px;
-            background-color: rgba(20, 20, 20, 1);
-
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
-
-        #title {
-            color: rgba(255, 255, 255, 1);
-            font-size: 20px;
-            font-weight: 500;
-        }
-
-        main {
-            margin-top: 80px;
-            padding: 20px;
-
-            display: flex;
-            justify-content: center;
-        }
-
-        #grid-container {
-            width: 100%;
-            max-width: 1000px;
-
-            display: grid;
-            grid-gap: 30px;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            grid-template-areas:
-                'announcements announcements announcements'
-                'goals processing processing'
-                'tools tools tools';
-        }
-
-        .grid-item {
-            border-radius: 10px;
-            background-color: rgb(255, 255, 255, 1);
-            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-
-        .grid-item-title {
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 10px 25px;
-        }
-
-        h1 {
-            font-size: 18px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 1);
-        }
-
-        .grid-item-content {
-            padding: 25px;
-        }
-
-        .item-link {
-            text-decoration: none;
-        }
-
-        .item-link-content {
-            padding: 20px;
-            color: black;
-            background: rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            border-radius: 10px;
-            font-weight: 500;
-            display: flex;
-            justify-content: center;
-        }
-
-        .item-link-content:hover {
-            transition: 0.3s;
-            background-color: rgba(100, 0, 0, 0.7);
-        }
-
-        #announcements {
-            grid-area: announcements;
-        }
-
-        #goals {
-            grid-area: goals;
-        }
-
-        #processing {
-            grid-area: processing;
-        }
-
-        #returns {
-            grid-area: returns;
-        }
-
-        #tools {
-            grid-area: tools;
-        }
-
-        footer {
-            margin-bottom: 20px;
-
-            display: flex;
-            justify-content: center;
-        }
-
-        footer a {
-            text-decoration: none;
-            color: white;
-        }
-
-        #credits {
-            color: rgba(255, 255, 255, 1);
-            font-size: 10px;
-            font-weight: 400;
-        }
-
-        @media only screen and (max-width: 1125px) {
-            #grid-container {
-                max-width: 750px;
-
-                grid-template-columns: repeat(2, 1fr);
-
-                grid-template-areas:
-                    'announcements announcements'
-                    'goals goals'
-                    'processing tools';
-            }
-        }
-
-        @media only screen and (max-width: 875px) {
-            header {
-                display: flex;
-                justify-content: center;
-            }
-
-            main {
-                margin-top: 50px;
-            }
-
-            #grid-container {
-                max-width: 500px;
-
-                grid-template-columns: repeat(1, 1fr);
-
-                grid-template-areas:
-                    'announcements'
-                    'goals'
-                    'processing'
-                    'tools';
-
-                grid-gap: 15px;
-            }
-
-            .grid-item {
-                border-radius: 15px;
-            }
-
-            .grid-item-content {
-                display: flex;
-                justify-content: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+
+    <link rel="manifest" href="../manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
 </head>
 
 <body>
     <header>
-        <div id="title">Nellis Auction</div>
+        <h1>Nellis Auction</h1>
     </header>
 
     <main>
-        <div id="grid-container">
+        <div class="grid-container" id="dashboard">
+
             <div class="grid-item" id="announcements">
                 <div class="grid-item-title">
-                    <h1>Announcements 📢</h1>
+                    <h2>Announcements</h2>
                 </div>
                 <div class="grid-item-content">
-                    Hey there! 🥳 Here are a few updates!
-                    <br>
-                    <br>
-                    &bullet; We recently added quick comments! Just click on one and it will automatically copy itself
-                    to the clipboard so that you can easily paste them onto your post!
-                    <br>
-                    <br>
-                    &bullet; UPH goals are now up to date! 🥅
+                    <p>You are all up to date!</p>
                 </div>
             </div>
 
             <div class="grid-item" id="goals">
                 <div class="grid-item-title">
-                    <h1>Goals 🟢🟡🟠</h1>
+                    <h2>Goals</h2>
                 </div>
-                <div class="grid-item-links">
-                    <a target="_blank"
-                        href="https://docs.google.com/spreadsheets/d/1_eLotxRw_D2bAwxDy7nYLErE9yrgPQRcml_uKqt9xcE/edit?gid=851619451#gid=851619451"
-                        class="item-link">
-                        <div class="item-link-content">📸 Inventory Processing</div>
+                <div class="grid-item-content grid-container">
+                    <a target="_blank" href="#" class="grid-item button">
+                        <p>Inventory Processing</p>
                     </a>
                 </div>
             </div>
 
-            <div class="grid-item" id="processing">
+            <div class="grid-item" id="general">
                 <div class="grid-item-title">
-                    <h1>Inventory Processing 📸</h1>
+                    <h2>General</h2>
                 </div>
-                <div class="grid-item-links">
-                    <a target="_blank" href="https://drive.google.com/file/d/1LoPqMaD2zlFLnP2OaHk8F_sTlST3Il7m/view"
-                        class="item-link">
-                        <div class="item-link-content">📖 Guidelines</div>
+                <div class="grid-item-content grid-container">
+                    <a target="_blank" href="#" class="content-link button">
+                        <p>Employee Handbook</p>
                     </a>
-                    <a target="_blank" href="https://forms.gle/ur4WBHGSkybezDB59" class="item-link">
-                        <div class="item-link-content">✅ Station Check</div>
-                    </a>
-                    <a target="_blank" href="./comments/index.html" class="item-link">
-                        <div class="item-link-content">💬 Quick Comments</div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="grid-item" id="tools">
-                <div class="grid-item-title">
-                    <h1>Tools 🔨</h1>
-                </div>
-                <div class="grid-item-links">
-                    <a target="_blank"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScthquLnvMAqgGESm7hjZ4gnctFBSqOaUavgfD4TrPa3ZUzFQ/viewform"
-                        class="item-link">
-                        <div class="item-link-content">📱The DL</div>
-                    </a>
-                    <a target="_blank"
-                        href="https://drive.google.com/file/d/1eYSLZhdEtIGl2TUMaurLpYw9PL-o_kMb/view?usp=sharing"
-                        class="item-link">
-                        <div class="item-link-content">📕 Employee Handbook</div>
+                    <a target="_blank" href="#" class="content-link button">
+                        <p>Leadership Direct Line</p>
                     </a>
                 </div>
             </div>
@@ -272,8 +66,9 @@
     </main>
 
     <footer>
-        <div id="credits">Created by: <a target="_blank" href="https://www.linkedin.com/in/denton-flake-1253b01a9">@dentonflake</a>
-        </div>
+        <a target="_blank" href="https://www.linkedin.com/in/denton-flake-1253b01a9">
+            <h6>Created by: @dentonflake</h6>
+        </a>
     </footer>
 </body>
 
