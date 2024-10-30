@@ -12,13 +12,8 @@
 }
 
 @media only screen and (max-width: 900px) {
-
     #locations {
         max-width: none;
-    }
-
-    #location-generator {
-        border-radius: 0;
     }
 
     #aisle, #bay, #column, #row {
