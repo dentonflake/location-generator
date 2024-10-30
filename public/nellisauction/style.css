@@ -5,33 +5,29 @@
     grid-template-areas:
         'announcements announcements'
         'general general'
-        'goals processing';
+        'goals admin'
+        'processing processing';
 }
 
 #announcements {
     grid-area: announcements;
 }
 
-#goals {
-    grid-area: goals;
-}
-
 #general {
     grid-area: general;
 }
 
-/* @media only screen and (max-width: 1125px) {
-    #grid-container {
-        max-width: none;
+#processing {
+    grid-area: processing;
+}
 
-        grid-template-columns: repeat(2, 1fr);
+#goals {
+    grid-area: goals;
+}
 
-        grid-template-areas:
-            'announcements announcements'
-            'goals goals'
-            'processing tools';
-    }
-} */
+#admin {
+    grid: admin;
+}
 
 @media only screen and (max-width: 875px) {
     #dashboard {
@@ -41,6 +37,7 @@
             'announcements'
             'general'
             'goals'
-            'processing';
+            'processing'
+            'admin';
     }
 }
