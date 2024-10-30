@@ -47,6 +47,10 @@ a {
     color: rgba(25, 25, 25, 1);
 }
 
+p {
+    color: rgba(25, 25, 25, 1);
+}
+
 footer {
     display: flex;
     justify-content: center;
