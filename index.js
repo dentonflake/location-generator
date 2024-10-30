@@ -25,8 +25,14 @@ app.post('/submit', (req, res) => {
             start: parseInt(req.body.bayStart),
             end: parseInt(req.body.bayEnd)
         },
-        column: parseInt(req.body.column),
-        row: parseInt(req.body.row)
+        column: {
+            start: parseInt(req.body.columnStart),
+            end: parseInt(req.body.columnEnd)
+        },
+        row: {
+            start: parseInt(req.body.rowStart),
+            end: parseInt(req.body.rowEnd)
+        }
     }
 
     let data = [];
@@ -35,15 +41,15 @@ app.post('/submit', (req, res) => {
 
         for (let bay = 0; bay <= (request.bay.end - request.bay.start); bay++) {
 
-            for (let column = 0; column < request.column; column++) {
+            for (let column = 0; column <= (request.column.end - request.column.start); column++) {
 
-                for (let row = 0; row < request.row; row++) {
-
+                for (let row = 0; row <= (request.row.end - request.row.start); row++) {
+        
                     let location = {
                         prefix: `${request.warehouse + request.aisle.start + aisle}`,
-                        suffix: `${request.bay.start + bay}${column + 1}${row + 1}`
+                        suffix: `${request.bay.start + bay}${request.column.start + column}${request.row.start + row}`
                     }
-
+        
                     data.push({
                         code: `${location.prefix}.${location.suffix}`,
                         label: `${request.aisle.start + aisle}.${location.suffix}`
@@ -51,7 +57,6 @@ app.post('/submit', (req, res) => {
                 }
             }
         }
-
     }
 
     const filePath = path.join(__dirname, 'locations.xlsx');

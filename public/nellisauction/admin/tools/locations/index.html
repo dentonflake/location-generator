@@ -8,6 +8,7 @@
     <title>Nellis Auction</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../assets/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,11 +18,89 @@
 
 <body>
     <header>
-        <h1 id="name">Nellis Auction</h1>
+        <h1>Nellis Auction</h1>
     </header>
 
     <main>
-        <section id="tool-container">
+        <div class="grid-container" id="locations">
+
+            <div class="grid-item" id="location-generator">
+                <div class="grid-item-title">
+                    <h2>Location Generator</h2>
+                </div>
+                <form class="grid-item-content grid-container" action="/submit" method="post">
+                    <div class="grid-container highlight" id="warehouse">
+                        <div class="form-item" id="warehouse-number">
+                            <label for="warehouse" class="form-item-title">
+                                <p>Warehouse #: </p>
+                            </label>
+                            <input type="number" name="warehouse" id="warehouse-input" placeholder="E.g. 3000" required>
+                        </div>
+                    </div>
+                    <div class="grid-container highlight" id="aisle">
+                        <div class="form-item" id="aisle-start">
+                            <label for="aisleStart" class="form-item-title">
+                                <p>Aisle Start: </p>
+                            </label>
+                            <input type="number" name="aisleStart" id="aisle-start-input" placeholder="E.g. 1" required>
+                        </div>
+                        <div class="form-item" id="aisle-end">
+                            <label for="aisleEnd" class="form-item-title">
+                                <p>Aisle End: </p>
+                            </label>
+                            <input type="number" name="aisleEnd" id="aisle-end-input" placeholder="E.g. 10  " required>
+                        </div>
+                    </div>
+                    <div class="grid-container highlight" id="bay">
+                        <div class="form-item" id="bay-start">
+                            <label for="bayStart" class="form-item-title">
+                                <p>Bay Start: </p>
+                            </label>
+                            <input type="number" name="bayStart" id="bay-start-input" placeholder="E.g. 1" required>
+                        </div>
+                        <div class="form-item" id="bay-end">
+                            <label for="bayEnd" class="form-item-title">
+                                <p>Bay End: </p>
+                            </label>
+                            <input type="number" name="bayEnd" id="bay-end-input" placeholder="E.g. 10  " required>
+                        </div>
+                    </div>
+                    <div class="grid-container highlight" id="column">
+                        <div class="form-item" id="bay-start">
+                            <label for="columnStart" class="form-item-title">
+                                <p>Column Start: </p>
+                            </label>
+                            <input type="number" name="columnStart" id="column-start-input" placeholder="E.g. 1" required>
+                        </div>
+                        <div class="form-item" id="column-end">
+                            <label for="columnEnd" class="form-item-title">
+                                <p>Column End: </p>
+                            </label>
+                            <input type="number" name="columnEnd" id="column-end-input" placeholder="E.g. 10  " required>
+                        </div>
+                    </div>
+                    <div class="grid-container highlight" id="row">
+                        <div class="form-item" id="row-start">
+                            <label for="rowStart" class="form-item-title">
+                                <p>Row Start: </p>
+                            </label>
+                            <input type="number" name="rowStart" id="row-start-input" placeholder="E.g. 1" required>
+                        </div>
+                        <div class="form-item" id="row-end">
+                            <label for="rowEnd" class="form-item-title">
+                                <p>Row End: </p>
+                            </label>
+                            <input type="number" name="rowEnd" id="row-end-input" placeholder="E.g. 10  " required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="grid-item button" id="generate">Generate</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- <section id="tool-container">
             <h1 id="tool-title">Location Generator</h1>
             <form id="tool-grid" action="/submit" method="post">
                 <div class="grid-item" id="warehouse">
@@ -50,11 +129,13 @@
                 </div>
                 <button type="submit" class="grid-item" id="generate">Generate</button>
             </form>
-        </section>
+        </section> -->
     </main>
 
     <footer>
-        <a target="_blank" href="https://www.linkedin.com/in/denton-flake-1253b01a9">Created By: @dentonflake</a>
+        <a target="_blank" href="https://www.linkedin.com/in/denton-flake-1253b01a9">
+            <h6>Created by: @dentonflake</h6>
+        </a>
     </footer>
 </body>
 

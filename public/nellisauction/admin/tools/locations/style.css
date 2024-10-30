@@ -1,174 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-
-    font-style: normal;
-}
-
-body {
-    background-color: rgb(50, 50, 50);
-}
-
-header {
-    background-color: rgba(25, 25, 25, 1);
-    padding: 20px;
-}
-
-#name {
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 100px 100px 15px;
-}
-
-#tool-container {
+#locations {
     width: 100%;
-    max-width: 800px;
-    border-radius: 15px;
-    overflow: hidden;
+    max-width: 1000px;
 }
 
-#tool-title {
-    background-color: rgb(100, 100, 100);
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 300;
-    color: white;
-}
-
-#tool-grid {
-    padding: 30px;
-
-    background-color: rgb(240, 240, 240);
-
-    display: grid;
-    gap: 15px;
-
-    grid-template-areas:
-        'warehouse warehouse warehouse generate'
-        'aisle aisle aisle aisle'
-        'bay bay bay bay'
-        'column column row row';
-}
-
-.grid-item {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
-.grid-item-title {
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-input {
-    border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    padding: 5px;
-    width: 100%;
-}
-
-#warehouse {
-    grid-area: warehouse;
-}
-
-#aisle {
-    grid-area: aisle;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 15px;
-}
-
-#bay {
-    grid-area: bay;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 15px;
-}
-
-#column {
-    grid-area: column;
-}
-
-#row {
-    grid-area: row;
+#aisle, #bay, #column, #row {
+    grid-template-columns: 1fr 1fr;
 }
 
 #generate {
-    grid-area: generate;
-    border: none;
-    background-color: gold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
-    color: black;
-}
-
-#generate:hover {
-    cursor: pointer;
-    transition: 0.2s;
-    filter: brightness(80%);
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-
-}
-
-footer a {
-    text-decoration: none;
-    color: white;
-    font-size: 10px;
-    font-weight: 300;
+    background-color: rgb(255, 217, 0);
 }
 
 @media only screen and (max-width: 900px) {
 
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    main {
-        padding: 0 0 15px;
-    }
-
-    #tool-container {
+    #locations {
         max-width: none;
-
-        border-radius: 0px;
     }
 
-    #tool-grid {
-        grid-template-areas:
-            'warehouse'
-            'aisle'
-            'bay'
-            'column'
-            'row'
-            'generate';
+    #location-generator {
+        border-radius: 0;
+    }
+
+    #aisle, #bay, #column, #row {
+        grid-template-columns: 1fr;
     }
 }

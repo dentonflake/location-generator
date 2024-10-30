@@ -4,7 +4,8 @@
 
     grid-template-areas:
         'announcements announcements'
-        'goals general';
+        'general general'
+        'goals processing';
 }
 
 #announcements {
