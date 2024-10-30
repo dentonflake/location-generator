@@ -73,7 +73,7 @@ footer {
 
 .grid-item-title {
     padding: 15px;
-    background-color: #812116;
+    background-color: rgba(25, 25, 25, 1);
 }
 
 .grid-item-content {
