@@ -51,8 +51,8 @@ app.post('/submit', (req, res) => {
                     }
         
                     data.push({
-                        code: `${location.prefix}.${location.suffix}`,
-                        label: `${request.aisle.start + aisle}.${location.suffix}`
+                        Code: `${location.prefix}.${location.suffix}`,
+                        Title: `${request.aisle.start + aisle}.${location.suffix}`
                     })
                 }
             }
@@ -62,7 +62,7 @@ app.post('/submit', (req, res) => {
     const filePath = path.join(__dirname, 'locations.xlsx');
     const workbook = xlsx.utils.book_new();
 
-    const worksheet = xlsx.utils.json_to_sheet(data, { header: ["label", "code"] });
+    const worksheet = xlsx.utils.json_to_sheet(data, { header: ["Title", "Description", "Code"] });
 
     xlsx.utils.book_append_sheet(workbook, worksheet, 'Locations');
 
