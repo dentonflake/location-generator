@@ -35,6 +35,29 @@ app.post('/submit', (req, res) => {
         }
     }
 
+    fs.readFile('database.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return;
+        }
+
+        let database;
+        try {
+            database = JSON.parse(data);
+        } catch (parseError) {
+            console.error('Error parsing JSON:', parseError);
+            return;
+        }
+        
+        database.push(request);
+
+        fs.writeFile('database.json', JSON.stringify(database, null, 4), (writeError) => {
+            if (writeError) {
+                console.error('Error writing file:', writeError);
+            }
+        });
+    });
+
     let data = [];
 
     for (let aisle = 0; aisle <= (request.aisle.end - request.aisle.start); aisle++) {
