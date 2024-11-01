@@ -1,7 +1,7 @@
 {
-  "name": "location-generator",
+  "name": "work",
   "version": "1.0.0",
-  "description": "A tool to help generate storage locations.",
+  "description": "A server to host tools for work.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
