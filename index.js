@@ -68,10 +68,16 @@ app.post('/submit', (req, res) => {
 
     xlsx.writeFile(workbook, filePath);
 
-    res.download(filePath, 'locations.xlsx', (err) => {
-        if (err) {
-            console.error('Error sending file:', err);
+    res.download(filePath, 'locations.xlsx', (downloadError) => {
+        if (downloadError) {
+            console.error('Error sending file:', downloadError);
             res.status(500).send('Error downloading file.');
+        } else {
+            fs.unlink(filePath, (deleteError) => {
+                if (deleteError) {
+                    console.error('Error deleting file:', deleteError);
+                }
+            });
         }
     });
 });
